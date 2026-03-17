@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <title>AstroMentors | Premium Audio Tarot</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #0f0f1a;
+        --gold: #d4af37;
+        --gold-glow: rgba(212, 175, 55, 0.4);
+        --white: #f4f4f4;
+        --muted: #8e8e93;
+        --safe-top: env(safe-area-inset-top);
+        --safe-bottom: env(safe-area-inset-bottom);
+        --safe-left: env(safe-area-inset-left);
+        --safe-right: env(safe-area-inset-right);
+      }
+
+      * {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg);
+        color: var(--white);
+        font-family: "Lora", serif;
+        overflow: hidden;
+      }
+
+      /* Mystic Starry Background */
+      .stars-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at center, #1b1b2f 0%, #0f0f1a 100%);
+        z-index: -1;
+      }
+
+      /* Responsive Grid Layout */
+      .app-shell {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 1fr;
+        width: 100%;
+        height: 100dvh;
+        margin: 0 auto;
+        padding: calc(20px + var(--safe-top)) calc(20px + var(--safe-right))
+          calc(10px + var(--safe-bottom)) calc(20px + var(--safe-left));
+      }
+
+      /* Header - Always Centered */
+      header {
+        grid-column: 1 / -1;
+        text-align: center;
+        width: 100%;
+        padding-bottom: 10px;
+        z-index: 10;
+      }
+
+      .logo {
+        font-family: "Cinzel", serif;
+        font-size: 0.8rem;
+        letter-spacing: 5px;
+        color: var(--gold);
+        text-transform: uppercase;
+        display: block;
+      }
+
+      /* Main Content Container */
+      main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        min-height: 0;
+      }
+
+      .card-frame {
+        height: 100%;
+        max-height: 42dvh;
+        aspect-ratio: 1 / 1.6;
+        border: 1px solid var(--gold);
+        border-radius: 8px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 15px var(--gold-glow);
+        overflow: hidden;
+        background: #161625;
+        transition: transform 0.3s ease;
+      }
+
+      .card-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .player-ui {
+        width: 100%;
+        max-width: 380px;
+        text-align: center;
+      }
+
+      h1 {
+        font-family: "Cinzel", serif;
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+        margin: 0 0 15px 0;
+        color: var(--white);
+      }
+
+      /* Premium Audio Controls */
+      .scrubber-area {
+        width: 100%;
+        padding: 15px 0;
+        cursor: pointer;
+      }
+      .bar-bg {
+        height: 3px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        position: relative;
+      }
+      .bar-fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background: var(--gold);
+        width: 0%;
+        box-shadow: 0 0 10px var(--gold);
+      }
+
+      .time-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.7rem;
+        color: var(--muted);
+        margin-top: 8px;
+        font-family: monospace;
+      }
+
+      .play-btn {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 1px solid var(--gold);
+        background: transparent;
+        margin: 10px auto 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .play-btn:active {
+        transform: scale(0.85);
+        background: var(--gold-glow);
+      }
+      .play-btn svg {
+        fill: var(--gold);
+        width: 30px;
+        height: 30px;
+      }
+
+      /* Error/Welcome Screen */
+      #error-view {
+        grid-row: 2;
+        display: none;
+        text-align: center;
+        margin: auto;
+      }
+      .cta-link {
+        border: 1px solid var(--gold);
+        color: var(--gold);
+        padding: 12px 25px;
+        text-decoration: none;
+        font-family: "Cinzel";
+        font-size: 0.8rem;
+        display: inline-block;
+        margin-top: 20px;
+        letter-spacing: 2px;
+      }
+
+      footer {
+        grid-column: 1 / -1;
+        text-align: center;
+        font-size: 0.6rem;
+        letter-spacing: 3px;
+        opacity: 0.4;
+        padding-top: 15px;
+      }
+
+      /* LANDSCAPE RE-ORIENTATION (Mobile/Small Devices) */
+      @media (orientation: landscape) and (max-height: 500px) {
+        .app-shell {
+          grid-template-columns: 1fr 1fr;
+        }
+        header {
+          grid-column: 1 / span 2;
+          margin-bottom: 0;
+        }
+        main {
+          flex-direction: row;
+          grid-column: 1 / span 2;
+          gap: 50px;
+          padding: 0 40px;
+        }
+        .card-frame {
+          max-height: 60dvh;
+        }
+        .player-ui {
+          text-align: left;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .play-btn {
+          margin: 15px 0 0 0;
+          width: 60px;
+          height: 60px;
+        }
+        footer {
+          padding-top: 5px;
+        }
+      }
+
+      /* LARGE DESKTOP SPECIFIC CHANGES (Screens larger than 1200px) */
+      @media (min-width: 1200px) {
+        .app-shell {
+          max-width: 1400px;
+          padding: 40px;
+        }
+        .logo {
+          font-size: 1.4rem; /* Larger visible heading */
+          letter-spacing: 12px;
+          margin-bottom: 20px;
+        }
+        .card-frame {
+          max-height: 50dvh; /* Scales card comfortably for high-res screens */
+          border-width: 2px;
+        }
+        h1 {
+          font-size: 2.5rem; /* Larger card title */
+          margin-bottom: 25px;
+        }
+        .player-ui {
+          max-width: 450px; /* Slightly wider player controls for desktop */
+        }
+        .play-btn {
+          width: 85px;
+          height: 85px;
+        }
+        .play-btn svg {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      /* Tiny Screen Fix */
+      @media (max-width: 320px) {
+        .card-frame {
+          max-height: 35dvh;
+        }
+        h1 {
+          font-size: 1.1rem;
+        }
+      }
+
+      .fade-in {
+        animation: reveal 1.5s ease forwards;
+      }
+      @keyframes reveal {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stars-bg"></div>
+
+    <div class="app-shell fade-in">
+      <header>
+        <span class="logo">AstroMentors</span>
+      </header>
+
+      <main id="player-view">
+        <div class="card-frame">
+          <img
+            id="card-img"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt="Tarot Card"
+          />
+        </div>
+
+        <div class="player-ui">
+          <h1 id="card-title">Seeking...</h1>
+
+          <div class="scrubber-area" id="scrub-control">
+            <div class="bar-bg">
+              <div class="bar-fill" id="fill"></div>
+            </div>
+            <div class="time-labels">
+              <span id="curr">0:00</span>
+              <span id="total">0:00</span>
+            </div>
+          </div>
+
+          <button class="play-btn" id="master-play">
+            <svg id="icon-p" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <svg id="icon-s" style="display: none" viewBox="0 0 24 24">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            </svg>
+          </button>
+        </div>
+      </main>
+
+      <div id="error-view">
+        <h1>Celestial Greetings</h1>
+        <p style="color: var(--muted); max-width: 300px; margin: 0 auto">
+          Reveal your message by scanning your AstroMentors Tarot QR code.
+        </p>
+        <a href="?card=the-fool" class="cta-link">Test Experience</a>
+      </div>
+
+      <footer>© AstroMentors</footer>
+    </div>
+
+    <audio id="audio-core"></audio>
+
+    <script src="database.js"></script>
+    <script>
+      const audio = document.getElementById("audio-core");
+      const playBtn = document.getElementById("master-play");
+      const fill = document.getElementById("fill");
+      const scrub = document.getElementById("scrub-control");
+
+      function initApp() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const cardId = urlParams.get("card");
+
+        if (
+          cardId &&
+          typeof tarotDatabase !== "undefined" &&
+          tarotDatabase[cardId]
+        ) {
+          const data = tarotDatabase[cardId];
+          document.getElementById("card-title").innerText = data.title;
+          document.getElementById("card-img").src = data.image;
+          audio.src = data.audioPath;
+        } else {
+          document.getElementById("player-view").style.display = "none";
+          document.getElementById("error-view").style.display = "block";
+        }
+      }
+
+      playBtn.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+          document.getElementById("icon-p").style.display = "none";
+          document.getElementById("icon-s").style.display = "block";
+        } else {
+          audio.pause();
+          document.getElementById("icon-p").style.display = "block";
+          document.getElementById("icon-s").style.display = "none";
+        }
+      });
+
+      audio.addEventListener("timeupdate", () => {
+        const p = (audio.currentTime / audio.duration) * 100;
+        fill.style.width = p + "%";
+        document.getElementById("curr").innerText = fmt(audio.currentTime);
+        document.getElementById("total").innerText = fmt(audio.duration);
+      });
+
+      scrub.addEventListener("click", (e) => {
+        const rect = scrub.querySelector(".bar-bg").getBoundingClientRect();
+        const pos = (e.clientX - rect.left) / rect.width;
+        audio.currentTime = pos * audio.duration;
+      });
+
+      function fmt(s) {
+        if (isNaN(s)) return "0:00";
+        const m = Math.floor(s / 60);
+        const r = Math.floor(s % 60);
+        return `${m}:${r < 10 ? "0" + r : r}`;
+      }
+
+      window.onload = initApp;
+    </script>
+  </body>
+</html>
