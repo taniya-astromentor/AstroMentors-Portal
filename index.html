@@ -1698,7 +1698,7 @@
 
       <!-- FOOTER -->
       <footer class="ftr">
-        <p>© AstroMentor &nbsp;·&nbsp;</p>
+        <p>© AstroMentor</p>
       </footer>
     </div>
 
@@ -1889,7 +1889,7 @@
             cimg.alt = (data.title || id) + " tarot card";
             cimg.src = data.image;
           }
-          if (data.audioPath) {
+          if (data.audioPath && data.audioPath !== "") {
             aud.src = data.audioPath;
             aud.load();
             aud.addEventListener("canplay", function once() {
@@ -1900,6 +1900,13 @@
               aud.removeEventListener("loadedmetadata", onM);
               tt.textContent = fmt(aud.duration);
             });
+          } else {
+            // Handle cards with no audio
+            tt.textContent = "0:00";
+            np.textContent = "Audio coming soon";
+            np.classList.add("on");
+            bPlay.style.opacity = "0.3";
+            bPlay.style.pointerEvents = "none";
           }
         }
         function showNF() {
@@ -1915,7 +1922,7 @@
               id && tarotDatabase.hasOwnProperty(id) ? tarotDatabase[id] : null;
           if (id && data) showPlayer(id, data);
           else if (!id) showNF();
-          // else showNF();
+          else showNF();
         }
         document.readyState === "loading"
           ? document.addEventListener("DOMContentLoaded", init)
