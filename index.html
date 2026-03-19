@@ -12,7 +12,9 @@
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
-    <title>AstroMentors · Tarot</title>
+    <title>AstroMentor · Tarot</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg" />
+    <link rel="apple-touch-icon" href="logo.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -1676,7 +1678,7 @@
           tarot card to begin your sacred reading.
         </p>
         <a
-          href="https://www.astromentors.com"
+          href="https://www.theastromentors.com/"
           class="nf-a"
           target="_blank"
           rel="noopener noreferrer"
@@ -1912,8 +1914,8 @@
             data =
               id && tarotDatabase.hasOwnProperty(id) ? tarotDatabase[id] : null;
           if (id && data) showPlayer(id, data);
-          else if (!id) showPlayer("the-fool", tarotDatabase["the-fool"]);
-          else showNF();
+          else if (!id) showNF();
+          // else showNF();
         }
         document.readyState === "loading"
           ? document.addEventListener("DOMContentLoaded", init)
