@@ -78,11 +78,6 @@ const tarotDatabase = {
     image: "images/major_arcana/temperance.png",
     audioPath: "audio/major_arcana/14_temperance.mp3",
   },
-  "the-fool": {
-    title: "The Fool",
-    image: "images/the_fool.png",
-    audioPath: "audio/major_arcana/0_the_fool.mp3",
-  },
   "the-devil": {
     title: "The Devil",
     image: "images/major_arcana/the_devil.png",
