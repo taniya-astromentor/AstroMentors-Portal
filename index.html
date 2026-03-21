@@ -15,6 +15,7 @@
     <title>AstroMentor · Tarot</title>
     <link rel="icon" type="image/svg+xml" href="logo.svg" />
     <link rel="apple-touch-icon" href="logo.svg" />
+    <link rel="preload" href="logo.svg" as="image" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -1427,7 +1428,12 @@
       <!-- HEADER -->
       <header class="hdr">
         <div class="logo-box">
-          <img src="logo.svg" alt="AstroMentors" />
+          <img
+            src="logo.svg"
+            alt="AstroMentors"
+            fetchpriority="high"
+            decoding="sync"
+          />
         </div>
         <div class="brand-col">
           <span class="brand-name">AstroMentor</span>
