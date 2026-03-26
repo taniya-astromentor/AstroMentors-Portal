@@ -405,11 +405,16 @@
         animation: shimmer 5s linear infinite;
       }
       .brand-sub {
-        font-family: var(--ff-head);
-        font-size: 0.5rem;
-        letter-spacing: 0.26em;
-        text-transform: uppercase;
+        font-family: var(--ff-body);
+        font-size: 0.8rem;
+        letter-spacing: 0.01em;
+        text-transform: lowercase;
         color: var(--muted);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      .brand-sub:hover {
+        color: var(--gold);
       }
 
       /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -1263,7 +1268,7 @@
           font-size: 0.9rem;
         }
         .brand-sub {
-          font-size: 0.54rem;
+          font-size: 1rem;
         }
         .pbtn {
           width: 66px;
@@ -1301,7 +1306,7 @@
           font-size: clamp(0.82rem, 1.1vw, 1.05rem);
         }
         .brand-sub {
-          font-size: clamp(0.48rem, 0.65vw, 0.58rem);
+          font-size: clamp(0.9rem, 0.65vw, 0.58rem);
         }
         .pbtn {
           width: clamp(58px, 7.5vh, 78px);
@@ -1367,7 +1372,7 @@
           font-size: clamp(0.9rem, 1.2vw, 1.2rem);
         }
         .brand-sub {
-          font-size: clamp(0.52rem, 0.7vw, 0.64rem);
+          font-size: clamp(1rem, 0.7vw, 0.64rem);
         }
         .pbtn {
           width: clamp(66px, 8.5vh, 90px);
@@ -1433,17 +1438,31 @@
     <div class="app">
       <!-- HEADER -->
       <header class="hdr">
-        <div class="logo-box">
-          <img
-            src="logo.svg"
-            alt="AstroMentors"
-            fetchpriority="high"
-            decoding="sync"
-          />
-        </div>
-        <div class="brand-col">
-          <span class="brand-name">AstroMentor</span>
-        </div>
+        <a
+          href="https://www.theastromentors.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+          "
+          ><div class="logo-box">
+            <img
+              src="logo.svg"
+              alt="AstroMentors"
+              fetchpriority="high"
+              decoding="sync"
+            />
+          </div>
+          <div class="brand-col">
+            <span class="brand-name">AstroMentor</span>
+            <a href="https://www.theastromentors.com/" class="brand-sub"
+              >theastromentors.com</a
+            >
+          </div></a
+        >
       </header>
 
       <!-- MAIN: wraps stage + panel for landscape two-column layout -->
