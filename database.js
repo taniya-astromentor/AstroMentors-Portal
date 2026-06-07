@@ -4,8 +4,8 @@
 const tarotDatabase = {
   // major arcana
   astromentor: {
-    title: "Cloud Deck",
-    image: "",
+    title: "The Cloud Deck",
+    image: "images/astromentor/intro.webp",
     audioPath: "audio/astromentor/intro.mp3",
   },
   "the-fool": {
