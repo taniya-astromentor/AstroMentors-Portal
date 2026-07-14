@@ -419,6 +419,13 @@
         color: var(--gold);
       }
 
+      .controls-area {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 4px; /* Space between toggle and player */
+      }
       /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    LANGUAGE TOGGLE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -1233,14 +1240,17 @@
           margin-top: 3px;
         }
 
-        /* Panel = fixed comfortable width, centered beside card */
-        .panel {
-          flex: 0 1 280px;
-          min-width: 220px;
-          width: auto;
-          border-radius: 14px;
+        /* The new wrapper now controls the right-side width */
+        .controls-area {
+          flex: 0 1 320px; /* Gives it a comfortable width on the right */
+          min-width: 260px;
           justify-content: center;
         }
+        /* Panel = fixed comfortable width, centered beside card */
+        .panel {
+    flex: 1; 
+    width: 100%;
+  }
 
         /* Hide waveform & footer to save space */
         .wf {
@@ -1498,7 +1508,7 @@
 
     <div class="app">
       <!-- HEADER -->
-      <header class="hdr" style="flex-direction: column; gap: 4px">
+      <header class="hdr">
         <a
           href="https://www.theastromentors.com/"
           target="_blank"
@@ -1621,162 +1631,168 @@
             </div>
           </div>
         </section>
-
-        <div
-          class="lang-toggle"
-          id="lang-toggle"
-          role="group"
-          aria-label="Language"
-          style="display: none; margin: 10px 0"
-        >
-          <button type="button" class="lang-btn" id="lang-en" data-lang="en">
-            English
-          </button>
-          <span class="lang-sep" aria-hidden="true">|</span>
-          <button type="button" class="lang-btn" id="lang-hi" data-lang="hi">
-            Hindi
-          </button>
-        </div>
-
-        <!-- PLAYER PANEL -->
-        <div
-          class="panel"
-          id="panel"
-          style="display: none"
-          role="region"
-          aria-label="Audio player"
-        >
-          <audio id="aud" preload="metadata"></audio>
-
-          <!-- Autoplay gate -->
-          <div class="gate" id="gate" aria-live="polite">
-            <button class="gbtn" id="gbtn" aria-label="Begin your reading">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5.14v14l11-7-11-7z" />
-              </svg>
-            </button>
-            <p class="glbl">Tap to begin</p>
-          </div>
-
-          <!-- Waveform -->
-          <div class="wf" id="wf" aria-hidden="true">
-            <div class="wb" style="height: 6px"></div>
-            <div class="wb" style="height: 12px"></div>
-            <div class="wb" style="height: 18px"></div>
-            <div class="wb" style="height: 8px"></div>
-            <div class="wb" style="height: 15px"></div>
-            <div class="wb" style="height: 5px"></div>
-            <div class="wb" style="height: 20px"></div>
-            <div class="wb" style="height: 10px"></div>
-            <div class="wb" style="height: 16px"></div>
-            <div class="wb" style="height: 7px"></div>
-            <div class="wb" style="height: 13px"></div>
-            <div class="wb" style="height: 19px"></div>
-          </div>
-
-          <!-- Seek bar -->
+        <div class="controls-area">
+          <!-- toogle button  -->
           <div
-            class="seek"
-            id="seek"
-            role="slider"
-            aria-label="Seek"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            aria-valuenow="0"
-            tabindex="0"
+            class="lang-toggle"
+            id="lang-toggle"
+            role="group"
+            aria-label="Language"
+            style="display: none; margin: 10px 0"
           >
-            <div class="seek-f" id="seek-f"></div>
-            <div class="seek-t" id="seek-t" aria-hidden="true"></div>
-          </div>
-
-          <!-- Time -->
-          <div class="tr">
-            <span class="tv" id="tc" aria-live="polite">0:00</span>
-            <span class="np" id="np" aria-live="polite">
-              <span class="np-dot" aria-hidden="true"></span>Now Playing
-            </span>
-            <span class="tv" id="tt">0:00</span>
-          </div>
-
-          <!-- Controls -->
-          <div class="ctrls">
-            <button class="cb" id="b-back" aria-label="Skip back 15 seconds">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
-                />
-                <text
-                  x="8.5"
-                  y="14.5"
-                  font-size="4.8"
-                  fill="currentColor"
-                  font-family="sans-serif"
-                  font-weight="bold"
-                >
-                  15
-                </text>
-              </svg>
+            <button type="button" class="lang-btn" id="lang-en" data-lang="en">
+              English
             </button>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <button type="button" class="lang-btn" id="lang-hi" data-lang="hi">
+              Hindi
+            </button>
+          </div>
 
-            <button class="pbtn" id="b-play" aria-label="Play">
-              <svg id="i-play" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5.14v14l11-7-11-7z" />
-              </svg>
-              <svg
-                id="i-pause"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                style="display: none"
+          <!-- PLAYER PANEL -->
+          <div
+            class="panel"
+            id="panel"
+            style="display: none"
+            role="region"
+            aria-label="Audio player"
+          >
+            <audio id="aud" preload="metadata"></audio>
+
+            <!-- Autoplay gate -->
+            <div class="gate" id="gate" aria-live="polite">
+              <button class="gbtn" id="gbtn" aria-label="Begin your reading">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5.14v14l11-7-11-7z" />
+                </svg>
+              </button>
+              <p class="glbl">Tap to begin</p>
+            </div>
+
+            <!-- Waveform -->
+            <div class="wf" id="wf" aria-hidden="true">
+              <div class="wb" style="height: 6px"></div>
+              <div class="wb" style="height: 12px"></div>
+              <div class="wb" style="height: 18px"></div>
+              <div class="wb" style="height: 8px"></div>
+              <div class="wb" style="height: 15px"></div>
+              <div class="wb" style="height: 5px"></div>
+              <div class="wb" style="height: 20px"></div>
+              <div class="wb" style="height: 10px"></div>
+              <div class="wb" style="height: 16px"></div>
+              <div class="wb" style="height: 7px"></div>
+              <div class="wb" style="height: 13px"></div>
+              <div class="wb" style="height: 19px"></div>
+            </div>
+
+            <!-- Seek bar -->
+            <div
+              class="seek"
+              id="seek"
+              role="slider"
+              aria-label="Seek"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              tabindex="0"
+            >
+              <div class="seek-f" id="seek-f"></div>
+              <div class="seek-t" id="seek-t" aria-hidden="true"></div>
+            </div>
+
+            <!-- Time -->
+            <div class="tr">
+              <span class="tv" id="tc" aria-live="polite">0:00</span>
+              <span class="np" id="np" aria-live="polite">
+                <span class="np-dot" aria-hidden="true"></span>Now Playing
+              </span>
+              <span class="tv" id="tt">0:00</span>
+            </div>
+
+            <!-- Controls -->
+            <div class="ctrls">
+              <button class="cb" id="b-back" aria-label="Skip back 15 seconds">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
+                  />
+                  <text
+                    x="8.5"
+                    y="14.5"
+                    font-size="4.8"
+                    fill="currentColor"
+                    font-family="sans-serif"
+                    font-weight="bold"
+                  >
+                    15
+                  </text>
+                </svg>
+              </button>
+
+              <button class="pbtn" id="b-play" aria-label="Play">
+                <svg id="i-play" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5.14v14l11-7-11-7z" />
+                </svg>
+                <svg
+                  id="i-pause"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  style="display: none"
+                >
+                  <path d="M6 5h4v14H6zM14 5h4v14h-4z" />
+                </svg>
+              </button>
+
+              <button
+                class="cb"
+                id="b-fwd"
+                aria-label="Skip forward 15 seconds"
               >
-                <path d="M6 5h4v14H6zM14 5h4v14h-4z" />
-              </svg>
-            </button>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"
+                  />
+                  <text
+                    x="8.5"
+                    y="14.5"
+                    font-size="4.8"
+                    fill="currentColor"
+                    font-family="sans-serif"
+                    font-weight="bold"
+                  >
+                    15
+                  </text>
+                </svg>
+              </button>
+            </div>
 
-            <button class="cb" id="b-fwd" aria-label="Skip forward 15 seconds">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"
-                />
-                <text
-                  x="8.5"
-                  y="14.5"
-                  font-size="4.8"
-                  fill="currentColor"
-                  font-family="sans-serif"
-                  font-weight="bold"
-                >
-                  15
-                </text>
-              </svg>
-            </button>
-          </div>
-
-          <!-- Volume -->
-          <div class="vr" aria-label="Volume">
-            <span class="vi" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05A4.494 4.494 0 0016.5 12z"
-                />
-              </svg>
-            </span>
-            <input
-              type="range"
-              class="vsl"
-              id="vol"
-              min="0"
-              max="1"
-              step="0.02"
-              value="1"
-              aria-label="Volume"
-            />
-            <span class="vi" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05A4.494 4.494 0 0016.5 12zm2.5-4.07v8.13A7.997 7.997 0 0019 12c0-2.02.74-3.88 2-5.07z"
-                />
-              </svg>
-            </span>
+            <!-- Volume -->
+            <div class="vr" aria-label="Volume">
+              <span class="vi" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05A4.494 4.494 0 0016.5 12z"
+                  />
+                </svg>
+              </span>
+              <input
+                type="range"
+                class="vsl"
+                id="vol"
+                min="0"
+                max="1"
+                step="0.02"
+                value="1"
+                aria-label="Volume"
+              />
+              <span class="vi" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05A4.494 4.494 0 0016.5 12zm2.5-4.07v8.13A7.997 7.997 0 0019 12c0-2.02.74-3.88 2-5.07z"
+                  />
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
       </div>
