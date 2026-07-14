@@ -420,6 +420,56 @@
       }
 
       /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   LANGUAGE TOGGLE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+      .lang-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(6px, 1.2vw, 9px);
+        /* Changed margin to be consistent in the new location */
+        margin: 10px 0;
+        padding: clamp(4px, 0.9vw, 6px) clamp(12px, 2.2vw, 16px);
+        border-radius: 999px;
+        border: 1px solid rgba(var(--gr), 0.22);
+        background: linear-gradient(
+          180deg,
+          rgba(var(--gr), 0.07) 0%,
+          rgba(13, 18, 32, 0.55) 100%
+        );
+        box-shadow: 0 0 0 1px rgba(var(--gr), 0.06) inset,
+          0 0 14px rgba(var(--gr), 0.1), 0 2px 8px rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(2px);
+        z-index: 5;
+        flex-shrink: 0; /* Prevents it from squishing */
+      }
+      .lang-btn {
+        font-family: var(--ff-body);
+        font-size: clamp(0.62rem, 1.4vw, 0.72rem);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        background: none;
+        border: none;
+        padding: 2px 1px;
+        line-height: 1;
+        transition: color 0.3s var(--ease), text-shadow 0.3s var(--ease);
+      }
+      .lang-btn.active {
+        color: var(--gold);
+        text-shadow: 0 0 10px rgba(var(--gr), 0.55);
+      }
+      .lang-btn:not(.active):hover {
+        color: var(--cream);
+      }
+      .lang-sep {
+        font-size: clamp(0.6rem, 1.3vw, 0.68rem);
+        color: var(--dim);
+        line-height: 1;
+        user-select: none;
+      }
+
+      /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    CARD STAGE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
       .stage {
@@ -1227,6 +1277,15 @@
           font-size: 0.58rem;
           margin-top: 0;
         }
+
+        .lang-toggle {
+          position: absolute;
+          bottom: 10px; /* Moves it to a non-obstructive spot in landscape */
+          left: 50%;
+          transform: translateX(-50%);
+          margin: 0;
+          scale: 0.8; /* Keeps it small on short screens */
+        }
       }
 
       /* ──── TALLER LANDSCAPE (tablets on side, 500-700px height) ── */
@@ -1439,7 +1498,7 @@
 
     <div class="app">
       <!-- HEADER -->
-      <header class="hdr">
+      <header class="hdr" style="flex-direction: column; gap: 4px">
         <a
           href="https://www.theastromentors.com/"
           target="_blank"
@@ -1562,6 +1621,22 @@
             </div>
           </div>
         </section>
+
+        <div
+          class="lang-toggle"
+          id="lang-toggle"
+          role="group"
+          aria-label="Language"
+          style="display: none; margin: 10px 0"
+        >
+          <button type="button" class="lang-btn" id="lang-en" data-lang="en">
+            English
+          </button>
+          <span class="lang-sep" aria-hidden="true">|</span>
+          <button type="button" class="lang-btn" id="lang-hi" data-lang="hi">
+            Hindi
+          </button>
+        </div>
 
         <!-- PLAYER PANEL -->
         <div
@@ -1793,10 +1868,16 @@
           bFwd = document.getElementById("b-fwd"),
           vol = document.getElementById("vol"),
           gate = document.getElementById("gate"),
-          gbtn = document.getElementById("gbtn");
+          gbtn = document.getElementById("gbtn"),
+          langToggle = document.getElementById("lang-toggle"),
+          langEnBtn = document.getElementById("lang-en"),
+          langHiBtn = document.getElementById("lang-hi");
 
         var seeking = false,
-          playing = false;
+          playing = false,
+          currentLang = "en",
+          currentCardId = null,
+          currentCardData = null;
 
         function fmt(s) {
           if (!isFinite(s) || s < 0) return "0:00";
@@ -1811,6 +1892,76 @@
           var r = new URLSearchParams(window.location.search).get("card");
           return r && /^[a-zA-Z0-9_-]{1,64}$/.test(r) ? r : null;
         }
+        function langParam() {
+          // Backward compatibility: old QR codes have no ?lang= at all — default to English.
+          var r = new URLSearchParams(window.location.search).get("lang");
+          return r === "hi" ? "hi" : "en";
+        }
+        function updateLangUI() {
+          langEnBtn.classList.toggle("active", currentLang === "en");
+          langHiBtn.classList.toggle("active", currentLang === "hi");
+          langEnBtn.setAttribute(
+            "aria-pressed",
+            currentLang === "en" ? "true" : "false"
+          );
+          langHiBtn.setAttribute(
+            "aria-pressed",
+            currentLang === "hi" ? "true" : "false"
+          );
+        }
+        function switchLanguage(lang) {
+          if (lang !== "en" && lang !== "hi") lang = "en";
+          currentLang = lang;
+          updateLangUI();
+
+          // Keep the URL shareable/refreshable without reloading the page.
+          var url = new URL(window.location.href);
+          url.searchParams.set("lang", lang);
+          window.history.replaceState({}, "", url);
+
+          if (!currentCardData) return;
+          var loc = currentCardData[lang] || currentCardData.en;
+
+          // Instant title swap.
+          ctit.innerText = loc.title || currentCardId;
+          document.title =
+            "AstroMentors \u00b7 " + (loc.title || currentCardId);
+          cimg.alt = (loc.title || currentCardId) + " tarot card";
+
+          // Instant audio source swap.
+          var wasPlaying = playing;
+          aud.pause();
+          setP(false);
+          seekF.style.width = "0%";
+          seekT.style.left = "0%";
+          tc.textContent = "0:00";
+          np.classList.remove("on");
+          bPlay.style.opacity = "";
+          bPlay.style.pointerEvents = "";
+
+          if (loc.audioPath) {
+            aud.src = loc.audioPath;
+            aud.load();
+            if (wasPlaying) {
+              aud.addEventListener("canplay", function once() {
+                aud.removeEventListener("canplay", once);
+                tryPlay();
+              });
+            }
+          } else {
+            tt.textContent = "0:00";
+            np.textContent = "Audio coming soon";
+            np.classList.add("on");
+            bPlay.style.opacity = "0.3";
+            bPlay.style.pointerEvents = "none";
+          }
+        }
+        langEnBtn.addEventListener("click", function () {
+          if (currentLang !== "en") switchLanguage("en");
+        });
+        langHiBtn.addEventListener("click", function () {
+          if (currentLang !== "hi") switchLanguage("hi");
+        });
         function setP(v) {
           playing = v;
           iPlay.style.display = v ? "none" : "";
@@ -1933,12 +2084,17 @@
             });
         }
         function showPlayer(id, data) {
+          currentCardId = id;
+          currentCardData = data;
+          var loc = data[currentLang] || data.en || {};
+
           main.style.display = "flex";
           stage.style.display = "flex";
           panel.style.display = "flex";
           nfw.style.display = "none";
-          document.title = "AstroMentors \u00b7 " + (data.title || id);
-          ctit.textContent = data.title || id;
+          langToggle.style.display = "flex";
+          document.title = "AstroMentors \u00b7 " + (loc.title || id);
+          ctit.innerText = loc.title || id;
           if (data.image) {
             cimg.onload = function () {
               cimg.style.display = "block";
@@ -1948,11 +2104,11 @@
               cimg.style.display = "none";
               cph.style.display = "flex";
             };
-            cimg.alt = (data.title || id) + " tarot card";
+            cimg.alt = (loc.title || id) + " tarot card";
             cimg.src = data.image;
           }
-          if (data.audioPath && data.audioPath !== "") {
-            aud.src = data.audioPath;
+          if (loc.audioPath && loc.audioPath !== "") {
+            aud.src = loc.audioPath;
             aud.load();
             aud.addEventListener("canplay", function once() {
               aud.removeEventListener("canplay", once);
@@ -1976,9 +2132,12 @@
           stage.style.display = "none";
           panel.style.display = "none";
           nfw.style.display = "flex";
+          langToggle.style.display = "none";
           document.title = "AstroMentors \u00b7 Welcome";
         }
         function init() {
+          currentLang = langParam(); // no ?lang= (old QR codes) => "en"
+          updateLangUI();
           var id = param(),
             data =
               id && tarotDatabase.hasOwnProperty(id) ? tarotDatabase[id] : null;
