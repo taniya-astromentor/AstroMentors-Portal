@@ -12,7 +12,7 @@ const tarotDatabase = {
   "the-fool": {
     image: "images/major_arcana/the_fool.webp",
     en: { title: "The Fool", audioPath: "audio/major_arcana/0_the_fool.mp3" },
-    hi: { title: "मूर्ख", audioPath: "audio/major_arcana/1_the_magician.mp3" },
+    hi: { title: "मूर्ख", audioPath: "audio/Hindi/major_arcana/0_मूर्ख.mp3" },
   },
   "the-magician": {
     image: "images/major_arcana/the_magician.webp",
@@ -22,7 +22,7 @@ const tarotDatabase = {
     },
     hi: {
       title: "जादूगर",
-      audioPath: "audio/hi/major_arcana/1_the_magician.mp3",
+      audioPath: "audio/Hindi/major_arcana/1_जादूगर.mp3",
     },
   },
   "high-priestess": {
@@ -32,8 +32,8 @@ const tarotDatabase = {
       audioPath: "audio/major_arcana/2_the_high_priestess.mp3",
     },
     hi: {
-      title: "उच्च पुजारिन",
-      audioPath: "audio/hi/major_arcana/2_the_high_priestess.mp3",
+      title: "उच्च पुरोहिता",
+      audioPath: "audio/Hindi/major_arcana/2_उच्च-पुरोहिता.mp3",
     },
   },
   "the-empress": {
@@ -43,8 +43,8 @@ const tarotDatabase = {
       audioPath: "audio/major_arcana/3_the_empress.mp3",
     },
     hi: {
-      title: "सम्राज्ञी",
-      audioPath: "audio/hi/major_arcana/3_the_empress.mp3",
+      title: "साम्राज्ञी",
+      audioPath: "audio/Hindi/major_arcana/3_साम्राज्ञी.mp3",
     },
   },
   "the-emperor": {
@@ -55,7 +55,7 @@ const tarotDatabase = {
     },
     hi: {
       title: "सम्राट",
-      audioPath: "audio/hi/major_arcana/4_the_emperor.mp3",
+      audioPath: "audio/Hindi/major_arcana/4_सम्राट.mp3",
     },
   },
   "the-hierophant": {
@@ -65,8 +65,8 @@ const tarotDatabase = {
       audioPath: "audio/major_arcana/5_the_hierophant.mp3",
     },
     hi: {
-      title: "धर्माचार्य",
-      audioPath: "audio/hi/major_arcana/5_the_hierophant.mp3",
+      title: "मुक्तिदाता",
+      audioPath: "audio/Hindi/major_arcana/5_मुक्तिदाता.mp3",
     },
   },
   "the-lovers": {
@@ -76,8 +76,8 @@ const tarotDatabase = {
       audioPath: "audio/major_arcana/6_the_lovers.mp3",
     },
     hi: {
-      title: "प्रेमी युगल",
-      audioPath: "audio/hi/major_arcana/6_the_lovers.mp3",
+      title: "प्रेमी",
+      audioPath: "audio/Hindi/major_arcana/6_प्रेमी.mp3",
     },
   },
   "the-chariot": {
@@ -86,12 +86,12 @@ const tarotDatabase = {
       title: "The Chariot",
       audioPath: "audio/major_arcana/7_the_chariot.mp3",
     },
-    hi: { title: "रथ", audioPath: "audio/hi/major_arcana/7_the_chariot.mp3" },
+    hi: { title: "रथ", audioPath: "audio/Hindi/major_arcana/7_रथ.mp3" },
   },
   strength: {
     image: "images/major_arcana/strength.webp",
     en: { title: "Strength", audioPath: "audio/major_arcana/8_strength.mp3" },
-    hi: { title: "शक्ति", audioPath: "audio/hi/major_arcana/8_strength.mp3" },
+    hi: { title: "शक्ति", audioPath: "audio/Hindi/major_arcana/8_शक्ति.mp3" },
   },
   "the-hermit": {
     image: "images/major_arcana/the_hermit.webp",
@@ -100,8 +100,8 @@ const tarotDatabase = {
       audioPath: "audio/major_arcana/9_the_hermit.mp3",
     },
     hi: {
-      title: "सन्यासी",
-      audioPath: "audio/hi/major_arcana/9_the_hermit.mp3",
+      title: "संन्यासी",
+      audioPath: "audio/Hindi/major_arcana/9_संन्यासी.mp3",
     },
   },
   "wheel-of-fortune": {
@@ -112,13 +112,13 @@ const tarotDatabase = {
     },
     hi: {
       title: "भाग्य चक्र",
-      audioPath: "audio/hi/major_arcana/10_wheel_of_fortune.mp3",
+      audioPath: "audio/Hindi/major_arcana/10_भाग्य-चक्र.mp3",
     },
   },
   justice: {
     image: "images/major_arcana/justice.webp",
     en: { title: "Justice", audioPath: "audio/major_arcana/11_justice.mp3" },
-    hi: { title: "न्याय", audioPath: "audio/hi/major_arcana/11_justice.mp3" },
+    hi: { title: "न्याय", audioPath: "audio/Hindi/major_arcana/11_न्याय.mp3" },
   },
   "the-hangedman": {
     image: "images/major_arcana/the_hanged_man.webp",
@@ -127,14 +127,17 @@ const tarotDatabase = {
       audioPath: "audio/major_arcana/12_the_hanged_man.mp3",
     },
     hi: {
-      title: "लटका हुआ आदमी",
-      audioPath: "audio/hi/major_arcana/12_the_hanged_man.mp3",
+      title: "लटका हुआ व्यक्ति",
+      audioPath: "audio/Hindi/major_arcana/12_लटकता-हुआ-व्यक्ति.mp3",
     },
   },
   death: {
     image: "images/major_arcana/death.webp",
     en: { title: "Death", audioPath: "audio/major_arcana/13_Death.mp3" },
-    hi: { title: "मृत्यु", audioPath: "audio/hi/major_arcana/13_Death.mp3" },
+    hi: {
+      title: "मृत्यु",
+      audioPath: "audio/Hindi/major_arcana/13_मृत्यु.mp3",
+    },
   },
   temperance: {
     image: "images/major_arcana/temperance.webp",
@@ -142,7 +145,7 @@ const tarotDatabase = {
       title: "Temperance",
       audioPath: "audio/major_arcana/14_temperance.mp3",
     },
-    hi: { title: "संयम", audioPath: "audio/hi/major_arcana/14_temperance.mp3" },
+    hi: { title: "संयम", audioPath: "audio/Hindi/major_arcana/14_संयम.mp3" },
   },
   "the-devil": {
     image: "images/major_arcana/the_devil.webp",
@@ -150,7 +153,7 @@ const tarotDatabase = {
       title: "The Devil",
       audioPath: "audio/major_arcana/15_the_devil.mp3",
     },
-    hi: { title: "शैतान", audioPath: "audio/hi/major_arcana/15_the_devil.mp3" },
+    hi: { title: "शैतान", audioPath: "audio/Hindi/major_arcana/15_शैतान.mp3" },
   },
   "the-tower": {
     image: "images/major_arcana/the_tower.webp",
@@ -158,25 +161,25 @@ const tarotDatabase = {
       title: "The Tower",
       audioPath: "audio/major_arcana/16_the_tower.mp3",
     },
-    hi: { title: "मीनार", audioPath: "audio/hi/major_arcana/16_the_tower.mp3" },
+    hi: { title: "मीनार", audioPath: "audio/Hindi/major_arcana/16_मीनार.mp3" },
   },
   "the-star": {
     image: "images/major_arcana/the_star.webp",
     en: { title: "The Star", audioPath: "audio/major_arcana/17_the_star.mp3" },
-    hi: { title: "तारा", audioPath: "audio/hi/major_arcana/17_the_star.mp3" },
+    hi: { title: "तारा", audioPath: "audio/Hindi/major_arcana/17_तारा.mp3" },
   },
   "the-moon": {
     image: "images/major_arcana/the_moon.webp",
     en: { title: "The Moon", audioPath: "audio/major_arcana/18_the_moon.mp3" },
     hi: {
       title: "चंद्रमा",
-      audioPath: "audio/hi/major_arcana/18_the_moon.mp3",
+      audioPath: "audio/Hindi/major_arcana/18_चंद्रमा.mp3",
     },
   },
   "the-sun": {
     image: "images/major_arcana/the_sun.webp",
     en: { title: "The Sun", audioPath: "audio/major_arcana/19_the_sun.mp3" },
-    hi: { title: "सूर्य", audioPath: "audio/hi/major_arcana/19_the_sun.mp3" },
+    hi: { title: "सूर्य", audioPath: "audio/Hindi/major_arcana/19_सूर्य.mp3" },
   },
   judgement: {
     image: "images/major_arcana/judgement.webp",
@@ -185,8 +188,8 @@ const tarotDatabase = {
       audioPath: "audio/major_arcana/20_judgement.mp3",
     },
     hi: {
-      title: "निर्णय",
-      audioPath: "audio/hi/major_arcana/20_judgement.mp3",
+      title: "न्यायनिर्णय",
+      audioPath: "audio/Hindi/major_arcana/20_न्यायनिर्णय.mp3",
     },
   },
   "the-world": {
@@ -195,7 +198,7 @@ const tarotDatabase = {
       title: "The World",
       audioPath: "audio/major_arcana/21_the_world.mp3",
     },
-    hi: { title: "विश्व", audioPath: "audio/hi/major_arcana/21_the_world.mp3" },
+    hi: { title: "जगत", audioPath: "audio/Hindi/major_arcana/21_जगत.mp3" },
   },
 
   // suit of pentacles
@@ -206,8 +209,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_pentacles/1_ace_of_pentacles.mp3",
     },
     hi: {
-      title: "पेंटेकल का इक्का",
-      audioPath: "audio/hi/suit_of_pentacles/1_ace_of_pentacles.mp3",
+      title: "पेंटाकल्स का इक्का",
+      audioPath: "audio/Hindi/suit_of_pentacles/1_पेंटाकल्स-का-इक्का.mp3",
     },
   },
   "two-of-pentacles": {
@@ -217,8 +220,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_pentacles/2_two_of_pentacles.mp3",
     },
     hi: {
-      title: "पेंटेकल का दो",
-      audioPath: "audio/hi/suit_of_pentacles/2_two_of_pentacles.mp3",
+      title: "पेंटाकल्स का दो",
+      audioPath: "audio/Hindi/suit_of_pentacles/2_पेंटाकल्स-का-दो.mp3",
     },
   },
   "three-of-pentacles": {
@@ -228,8 +231,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_pentacles/3_three_of_pentacles.mp3",
     },
     hi: {
-      title: "पेंटेकल का तीन",
-      audioPath: "audio/hi/suit_of_pentacles/3_three_of_pentacles.mp3",
+      title: "पेंटाकल्स का तीन",
+      audioPath: "audio/Hindi/suit_of_pentacles/3_पेंटाकल्स-का-तीन.mp3",
     },
   },
   "four-of-pentacles": {
@@ -239,8 +242,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_pentacles/4_four_of_pentacles.mp3",
     },
     hi: {
-      title: "पेंटेकल का चार",
-      audioPath: "audio/hi/suit_of_pentacles/4_four_of_pentacles.mp3",
+      title: "पेंटाकल्स का चार",
+      audioPath: "audio/Hindi/suit_of_pentacles/4_पेंटाकल्स-का-चार.mp3",
     },
   },
   "five-of-pentacles": {
@@ -250,8 +253,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_pentacles/5_five_of_pentacles.mp3",
     },
     hi: {
-      title: "पेंटेकल का पांच",
-      audioPath: "audio/hi/suit_of_pentacles/5_five_of_pentacles.mp3",
+      title: "पेंटाकल्स का पांच",
+      audioPath: "audio/Hindi/suit_of_pentacles/5_पेंटाकल्स-का-पांच.mp3",
     },
   },
   "six-of-pentacles": {
@@ -261,8 +264,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_pentacles/6_six_of_pentacles.mp3",
     },
     hi: {
-      title: "पेंटेकल का छह",
-      audioPath: "audio/hi/suit_of_pentacles/6_six_of_pentacles.mp3",
+      title: "पेंटाकल्स का छह",
+      audioPath: "audio/Hindi/suit_of_pentacles/6_पेंटाकल्स-का-छह.mp3",
     },
   },
   "seven-of-pentacles": {
@@ -272,8 +275,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_pentacles/7_seven_of_pentacles.mp3",
     },
     hi: {
-      title: "पेंटेकल का सात",
-      audioPath: "audio/hi/suit_of_pentacles/7_seven_of_pentacles.mp3",
+      title: "पेंटाकल्स का सात",
+      audioPath: "audio/Hindi/suit_of_pentacles/7_पेंटाकल्स-का-सात.mp3",
     },
   },
   "eight-of-pentacles": {
@@ -283,8 +286,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_pentacles/8_eight_of_pentacles.mp3",
     },
     hi: {
-      title: "पेंटेकल का आठ",
-      audioPath: "audio/hi/suit_of_pentacles/8_eight_of_pentacles.mp3",
+      title: "पेंटाकल्स का आठ",
+      audioPath: "audio/Hindi/suit_of_pentacles/8_पेंटाकल्स-का-आठ.mp3",
     },
   },
   "nine-of-pentacles": {
@@ -294,8 +297,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_pentacles/9_nine_of_pentacles.mp3",
     },
     hi: {
-      title: "पेंटेकल का नौ",
-      audioPath: "audio/hi/suit_of_pentacles/9_nine_of_pentacles.mp3",
+      title: "पेंटाकल्स का नौ",
+      audioPath: "audio/Hindi/suit_of_pentacles/9_पेंटाकल्स-का-नौ.mp3",
     },
   },
   "ten-of-pentacles": {
@@ -305,8 +308,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_pentacles/10_ten_of_pentacles.mp3",
     },
     hi: {
-      title: "पेंटेकल का दस",
-      audioPath: "audio/hi/suit_of_pentacles/10_ten_of_pentacles.mp3",
+      title: "पेंटाकल्स का दस",
+      audioPath: "audio/Hindi/suit_of_pentacles/10_पेंटाकल्स-का-दस.mp3",
     },
   },
   "page-of-pentacles": {
@@ -316,8 +319,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_pentacles/11_page_of_pentacles.mp3",
     },
     hi: {
-      title: "पेंटेकल का सेवक",
-      audioPath: "audio/hi/suit_of_pentacles/11_page_of_pentacles.mp3",
+      title: "पेंटाकल्स का राजकुमार",
+      audioPath: "audio/Hindi/suit_of_pentacles/11_पेंटाकल्स-का-राजकुमार.mp3",
     },
   },
   "knight-of-pentacles": {
@@ -327,8 +330,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_pentacles/12_knight_of_pentacles.mp3",
     },
     hi: {
-      title: "पेंटेकल का शूरवीर",
-      audioPath: "audio/hi/suit_of_pentacles/12_knight_of_pentacles.mp3",
+      title: "पेंटाकल्स का शूरवीर",
+      audioPath: "audio/Hindi/suit_of_pentacles/12_पेंटाकल्स-का-शूरवीर.mp3",
     },
   },
   "queen-of-pentacles": {
@@ -338,8 +341,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_pentacles/13_queen_of_pentacles.mp3",
     },
     hi: {
-      title: "पेंटेकल का रानी",
-      audioPath: "audio/hi/suit_of_pentacles/13_queen_of_pentacles.mp3",
+      title: "पेंटाकल्स की रानी",
+      audioPath: "audio/Hindi/suit_of_pentacles/13_पेंटाकल्स-की-रानी.mp3",
     },
   },
   "king-of-pentacles": {
@@ -349,8 +352,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_pentacles/14_king_of_pentacles.mp3",
     },
     hi: {
-      title: "पेंटेकल का राजा",
-      audioPath: "audio/hi/suit_of_pentacles/14_king_of_pentacles.mp3",
+      title: "पेंटाकल्स का राजा",
+      audioPath: "audio/Hindi/suit_of_pentacles/14_पेंटाकल्स-का-राजा.mp3",
     },
   },
 
@@ -362,8 +365,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_cups/1_ace_of_cups.mp3",
     },
     hi: {
-      title: "कप का इक्का",
-      audioPath: "audio/hi/suit_of_cups/1_ace_of_cups.mp3",
+      title: "कप्स का इक्का",
+      audioPath: "audio/Hindi/suit_of_cups/1_कप्स-का-इक्का.mp3",
     },
   },
   "two-of-cups": {
@@ -373,8 +376,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_cups/2_two_of_cups.mp3",
     },
     hi: {
-      title: "कप का दो",
-      audioPath: "audio/hi/suit_of_cups/2_two_of_cups.mp3",
+      title: "कप्स का दो",
+      audioPath: "audio/Hindi/suit_of_cups/2_कप्स-का-दो.mp3",
     },
   },
   "three-of-cups": {
@@ -384,8 +387,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_cups/3_three_of_cups.mp3",
     },
     hi: {
-      title: "कप का तीन",
-      audioPath: "audio/hi/suit_of_cups/3_three_of_cups.mp3",
+      title: "कप्स का तीन",
+      audioPath: "audio/Hindi/suit_of_cups/3_कप्स-का-तीन.mp3",
     },
   },
   "four-of-cups": {
@@ -395,8 +398,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_cups/4_four_of_cups.mp3",
     },
     hi: {
-      title: "कप का चार",
-      audioPath: "audio/hi/suit_of_cups/4_four_of_cups.mp3",
+      title: "कप्स का चार",
+      audioPath: "audio/Hindi/suit_of_cups/4_कप्स-का-चार.mp3",
     },
   },
   "five-of-cups": {
@@ -406,8 +409,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_cups/5_five_of_cups.mp3",
     },
     hi: {
-      title: "कप का पांच",
-      audioPath: "audio/hi/suit_of_cups/5_five_of_cups.mp3",
+      title: "कप्स का पांच",
+      audioPath: "audio/Hindi/suit_of_cups/5_कप्स-का-पांच.mp3",
     },
   },
   "six-of-cups": {
@@ -417,8 +420,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_cups/6_six_of_cups.mp3",
     },
     hi: {
-      title: "कप का छह",
-      audioPath: "audio/hi/suit_of_cups/6_six_of_cups.mp3",
+      title: "कप्स का छह",
+      audioPath: "audio/Hindi/suit_of_cups/6_कप्स-का-छह.mp3",
     },
   },
   "seven-of-cups": {
@@ -428,8 +431,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_cups/7_seven_of_cups.mp3",
     },
     hi: {
-      title: "कप का सात",
-      audioPath: "audio/hi/suit_of_cups/7_seven_of_cups.mp3",
+      title: "कप्स का सात",
+      audioPath: "audio/Hindi/suit_of_cups/7_कप्स-का-सात.mp3",
     },
   },
   "eight-of-cups": {
@@ -439,8 +442,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_cups/8_eight_of_cups.mp3",
     },
     hi: {
-      title: "कप का आठ",
-      audioPath: "audio/hi/suit_of_cups/8_eight_of_cups.mp3",
+      title: "कप्स का आठ",
+      audioPath: "audio/Hindi/suit_of_cups/8_कप्स-का-आठ.mp3",
     },
   },
   "nine-of-cups": {
@@ -450,8 +453,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_cups/9_nine_of_cups.mp3",
     },
     hi: {
-      title: "कप का नौ",
-      audioPath: "audio/hi/suit_of_cups/9_nine_of_cups.mp3",
+      title: "कप्स का नौ",
+      audioPath: "audio/Hindi/suit_of_cups/9_कप्स-का-नौ.mp3",
     },
   },
   "ten-of-cups": {
@@ -461,8 +464,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_cups/10_ten_of_cups.mp3",
     },
     hi: {
-      title: "कप का दस",
-      audioPath: "audio/hi/suit_of_cups/10_ten_of_cups.mp3",
+      title: "कप्स का दस",
+      audioPath: "audio/Hindi/suit_of_cups/10_कप्स-का-दस.mp3",
     },
   },
   "page-of-cups": {
@@ -472,8 +475,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_cups/11_page_of_cups.mp3",
     },
     hi: {
-      title: "कप का सेवक",
-      audioPath: "audio/hi/suit_of_cups/11_page_of_cups.mp3",
+      title: "कप्स का राजकुमार",
+      audioPath: "audio/Hindi/suit_of_cups/11_कप्स-का-राजकुमार.mp3",
     },
   },
   "knight-of-cups": {
@@ -483,8 +486,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_cups/12_knight_of_cups.mp3",
     },
     hi: {
-      title: "कप का शूरवीर",
-      audioPath: "audio/hi/suit_of_cups/12_knight_of_cups.mp3",
+      title: "कप्स का शूरवीर",
+      audioPath: "audio/Hindi/suit_of_cups/12_कप्स-का-शूरवीर.mp3",
     },
   },
   "queen-of-cups": {
@@ -494,8 +497,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_cups/13_queen_of_cups.mp3",
     },
     hi: {
-      title: "कप का रानी",
-      audioPath: "audio/hi/suit_of_cups/13_queen_of_cups.mp3",
+      title: "कप्स की रानी",
+      audioPath: "audio/Hindi/suit_of_cups/13_कप्स-की-रानी.mp3",
     },
   },
   "king-of-cups": {
@@ -505,8 +508,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_cups/14_king_of_cups.mp3",
     },
     hi: {
-      title: "कप का राजा",
-      audioPath: "audio/hi/suit_of_cups/14_king_of_cups.mp3",
+      title: "कप्स का राजा",
+      audioPath: "audio/Hindi/suit_of_cups/14_कप्स-का-राजा.mp3",
     },
   },
 
@@ -518,8 +521,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_wands/1_ace_of_wands.mp3",
     },
     hi: {
-      title: "छड़ी का इक्का",
-      audioPath: "audio/hi/suit_of_wands/1_ace_of_wands.mp3",
+      title: "वांड्स का इक्का",
+      audioPath: "audio/Hindi/suit_of_wands/1_वौन्ड्स-का-इक्का.mp3",
     },
   },
   "two-of-wands": {
@@ -529,8 +532,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_wands/2_two_of_wands.mp3",
     },
     hi: {
-      title: "छड़ी का दो",
-      audioPath: "audio/hi/suit_of_wands/2_two_of_wands.mp3",
+      title: "वांड्स का दो",
+      audioPath: "audio/Hindi/suit_of_wands/2_वौन्ड्स-का-दो.mp3",
     },
   },
   "three-of-wands": {
@@ -540,8 +543,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_wands/3_three_of_wands.mp3",
     },
     hi: {
-      title: "छड़ी का तीन",
-      audioPath: "audio/hi/suit_of_wands/3_three_of_wands.mp3",
+      title: "वांड्स का तीन",
+      audioPath: "audio/Hindi/suit_of_wands/3_वौन्ड्स-का-तीन.mp3",
     },
   },
   "four-of-wands": {
@@ -551,8 +554,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_wands/4_four_of_wands.mp3",
     },
     hi: {
-      title: "छड़ी का चार",
-      audioPath: "audio/hi/suit_of_wands/4_four_of_wands.mp3",
+      title: "वांड्स का चार",
+      audioPath: "audio/Hindi/suit_of_wands/4_वौन्ड्स-का-चार.mp3",
     },
   },
   "five-of-wands": {
@@ -562,8 +565,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_wands/5_five_of_wands.mp3",
     },
     hi: {
-      title: "छड़ी का पांच",
-      audioPath: "audio/hi/suit_of_wands/5_five_of_wands.mp3",
+      title: "वांड्स का पांच",
+      audioPath: "audio/Hindi/suit_of_wands/5_वौन्ड्स-का-पांच.mp3",
     },
   },
   "six-of-wands": {
@@ -573,8 +576,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_wands/6_six_of_wands.mp3",
     },
     hi: {
-      title: "छड़ी का छह",
-      audioPath: "audio/hi/suit_of_wands/6_six_of_wands.mp3",
+      title: "वांड्स का छह",
+      audioPath: "audio/Hindi/suit_of_wands/6_वौन्ड्स-का-छह.mp3",
     },
   },
   "seven-of-wands": {
@@ -584,8 +587,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_wands/7_seven_of_wands.mp3",
     },
     hi: {
-      title: "छड़ी का सात",
-      audioPath: "audio/hi/suit_of_wands/7_seven_of_wands.mp3",
+      title: "वांड्स का सात",
+      audioPath: "audio/Hindi/suit_of_wands/7_वौन्ड्स-का-सात.mp3",
     },
   },
   "eight-of-wands": {
@@ -595,8 +598,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_wands/8_eight_of_wands.mp3",
     },
     hi: {
-      title: "छड़ी का आठ",
-      audioPath: "audio/hi/suit_of_wands/8_eight_of_wands.mp3",
+      title: "वांड्स का आठ",
+      audioPath: "audio/Hindi/suit_of_wands/8_वौन्ड्स-का-आठ.mp3",
     },
   },
   "nine-of-wands": {
@@ -606,8 +609,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_wands/9_nine_of_wands.mp3",
     },
     hi: {
-      title: "छड़ी का नौ",
-      audioPath: "audio/hi/suit_of_wands/9_nine_of_wands.mp3",
+      title: "वांड्स का नौ",
+      audioPath: "audio/Hindi/suit_of_wands/9_वौन्ड्स-का-नौ.mp3",
     },
   },
   "ten-of-wands": {
@@ -617,8 +620,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_wands/10_ten_of_wands.mp3",
     },
     hi: {
-      title: "छड़ी का दस",
-      audioPath: "audio/hi/suit_of_wands/10_ten_of_wands.mp3",
+      title: "वांड्स का दस",
+      audioPath: "audio/Hindi/suit_of_wands/10_वौन्ड्स-का-दस.mp3",
     },
   },
   "page-of-wands": {
@@ -628,8 +631,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_wands/11_page_of_wands.mp3",
     },
     hi: {
-      title: "छड़ी का सेवक",
-      audioPath: "audio/hi/suit_of_wands/11_page_of_wands.mp3",
+      title: "वांड्स का राजकुमार",
+      audioPath: "audio/Hindi/suit_of_wands/11_वौन्ड्स-का-राजकुमार.mp3",
     },
   },
   "knight-of-wands": {
@@ -639,8 +642,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_wands/12_knight_of_wands.mp3",
     },
     hi: {
-      title: "छड़ी का शूरवीर",
-      audioPath: "audio/hi/suit_of_wands/12_knight_of_wands.mp3",
+      title: "वांड्स का शूरवीर",
+      audioPath: "audio/Hindi/suit_of_wands/12_वौन्ड्स-का-शूरवीर.mp3",
     },
   },
   "queen-of-wands": {
@@ -650,8 +653,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_wands/13_queen_of_wands.mp3",
     },
     hi: {
-      title: "छड़ी का रानी",
-      audioPath: "audio/hi/suit_of_wands/13_queen_of_wands.mp3",
+      title: "वांड्स की रानी",
+      audioPath: "audio/Hindi/suit_of_wands/13_वौन्ड्स-की-रानी.mp3",
     },
   },
   "king-of-wands": {
@@ -661,8 +664,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_wands/14_king_of_wands.mp3",
     },
     hi: {
-      title: "छड़ी का राजा",
-      audioPath: "audio/hi/suit_of_wands/14_king_of_wands.mp3",
+      title: "वांड्स का राजा",
+      audioPath: "audio/Hindi/suit_of_wands/14_वौन्ड्स-का-राजा.mp3",
     },
   },
 
@@ -674,8 +677,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_swords/1_ace_of_swords.mp3",
     },
     hi: {
-      title: "तलवार का इक्का",
-      audioPath: "audio/hi/suit_of_swords/1_ace_of_swords.mp3",
+      title: "स्वॉर्ड्स का इक्का",
+      audioPath: "audio/Hindi/suit_of_swords/1_स्वॉर्ड्स-का-इक्का.mp3",
     },
   },
   "two-of-swords": {
@@ -685,8 +688,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_swords/2_two_of_swords.mp3",
     },
     hi: {
-      title: "तलवार का दो",
-      audioPath: "audio/hi/suit_of_swords/2_two_of_swords.mp3",
+      title: "स्वॉर्ड्स का दो",
+      audioPath: "audio/Hindi/suit_of_swords/2_स्वॉर्ड्स-का-दो.mp3",
     },
   },
   "three-of-swords": {
@@ -696,8 +699,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_swords/3_three_of_swords.mp3",
     },
     hi: {
-      title: "तलवार का तीन",
-      audioPath: "audio/hi/suit_of_swords/3_three_of_swords.mp3",
+      title: "स्वॉर्ड्स का तीन",
+      audioPath: "audio/Hindi/suit_of_swords/3_स्वॉर्ड्स-का-तीन.mp3",
     },
   },
   "four-of-swords": {
@@ -707,8 +710,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_swords/4_four_of_swords.mp3",
     },
     hi: {
-      title: "तलवार का चार",
-      audioPath: "audio/hi/suit_of_swords/4_four_of_swords.mp3",
+      title: "स्वॉर्ड्स का चार",
+      audioPath: "audio/Hindi/suit_of_swords/4_स्वॉर्ड्स-का-चार.mp3",
     },
   },
   "five-of-swords": {
@@ -718,8 +721,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_swords/5_five_of_swords.mp3",
     },
     hi: {
-      title: "तलवार का पांच",
-      audioPath: "audio/hi/suit_of_swords/5_five_of_swords.mp3",
+      title: "स्वॉर्ड्स का पांच",
+      audioPath: "audio/Hindi/suit_of_swords/5_स्वॉर्ड्स-का-पांच.mp3",
     },
   },
   "six-of-swords": {
@@ -729,8 +732,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_swords/6_six_of_swords.mp3",
     },
     hi: {
-      title: "तलवार का छह",
-      audioPath: "audio/hi/suit_of_swords/6_six_of_swords.mp3",
+      title: "स्वॉर्ड्स का छह",
+      audioPath: "audio/Hindi/suit_of_swords/6_स्वॉर्ड्स-का-छह.mp3",
     },
   },
   "seven-of-swords": {
@@ -740,8 +743,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_swords/7_seven_of_swords.mp3",
     },
     hi: {
-      title: "तलवार का सात",
-      audioPath: "audio/hi/suit_of_swords/7_seven_of_swords.mp3",
+      title: "स्वॉर्ड्स का सात",
+      audioPath: "audio/Hindi/suit_of_swords/7_स्वॉर्ड्स-का-सात.mp3",
     },
   },
   "eight-of-swords": {
@@ -751,8 +754,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_swords/8_eight_of_swords.mp3",
     },
     hi: {
-      title: "तलवार का आठ",
-      audioPath: "audio/hi/suit_of_swords/8_eight_of_swords.mp3",
+      title: "स्वॉर्ड्स का आठ",
+      audioPath: "audio/Hindi/suit_of_swords/8_स्वॉर्ड्स-का-आठ.mp3",
     },
   },
   "nine-of-swords": {
@@ -762,8 +765,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_swords/9_nine_of_swords.mp3",
     },
     hi: {
-      title: "तलवार का नौ",
-      audioPath: "audio/hi/suit_of_swords/9_nine_of_swords.mp3",
+      title: "स्वॉर्ड्स का नौ",
+      audioPath: "audio/Hindi/suit_of_swords/9_स्वॉर्ड्स-का-नौ.mp3",
     },
   },
   "ten-of-swords": {
@@ -773,8 +776,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_swords/10_ten_of_swords.mp3",
     },
     hi: {
-      title: "तलवार का दस",
-      audioPath: "audio/hi/suit_of_swords/10_ten_of_swords.mp3",
+      title: "स्वॉर्ड्स का दस",
+      audioPath: "audio/Hindi/suit_of_swords/10_स्वॉर्ड्स-का-दस.mp3",
     },
   },
   "page-of-swords": {
@@ -784,8 +787,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_swords/11_page_of_swords.mp3",
     },
     hi: {
-      title: "तलवार का सेवक",
-      audioPath: "audio/hi/suit_of_swords/11_page_of_swords.mp3",
+      title: "स्वॉर्ड्स का राजकुमार",
+      audioPath: "audio/Hindi/suit_of_swords/11_स्वॉर्ड्स-का-राजकुमार.mp3",
     },
   },
   "knight-of-swords": {
@@ -795,8 +798,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_swords/12_knight_of_swords.mp3",
     },
     hi: {
-      title: "तलवार का शूरवीर",
-      audioPath: "audio/hi/suit_of_swords/12_knight_of_swords.mp3",
+      title: "स्वॉर्ड्स का शूरवीर",
+      audioPath: "audio/Hindi/suit_of_swords/12_स्वॉर्ड्स-का-शूरवीर.mp3",
     },
   },
   "queen-of-swords": {
@@ -806,8 +809,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_swords/13_queen_of_swords.mp3",
     },
     hi: {
-      title: "तलवार का रानी",
-      audioPath: "audio/hi/suit_of_swords/13_queen_of_swords.mp3",
+      title: "स्वॉर्ड्स की रानी",
+      audioPath: "audio/Hindi/suit_of_swords/13_स्वॉर्ड्स-की-रानी.mp3",
     },
   },
   "king-of-swords": {
@@ -817,8 +820,8 @@ const tarotDatabase = {
       audioPath: "audio/suit_of_swords/14_king_of_swords.mp3",
     },
     hi: {
-      title: "तलवार का राजा",
-      audioPath: "audio/hi/suit_of_swords/14_king_of_swords.mp3",
+      title: "स्वॉर्ड्स का राजा",
+      audioPath: "audio/Hindi/suit_of_swords/14_स्वॉर्ड्स-का-राजा.mp3",
     },
   },
 };
