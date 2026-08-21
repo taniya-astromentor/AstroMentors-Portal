@@ -6,7 +6,7 @@ const tarotDatabase = {
   astromentor: {
     image: "images/astromentor/intro.webp",
     en: { title: "The Cloud Deck", audioPath: "audio/astromentor/intro.mp3" },
-    hi: { title: "क्लाउड डेक", audioPath: "audio/hi/astromentor/intro.mp3" },
+    hi: { title: "क्लाउड डेक", audioPath: "audio/Hindi/astromentor/intro.mp3" },
   },
   // major arcana
   "the-fool": {
